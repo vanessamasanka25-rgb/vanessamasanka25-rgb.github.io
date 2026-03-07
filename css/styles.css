@@ -9,7 +9,7 @@
 
 }
 
-.center {
+.centered {
     text-align: center;
     margin: auto;
 }
@@ -19,6 +19,12 @@
     display: flex;
 }
 
+.announcement-section {
+    display: flex;
+    flex-direction: column;
+    height: 60px;
+}
+
 .announcement-bar {
     background: #572121;
     color: white;
@@ -26,7 +32,7 @@
     white-space: nowrap;
     padding: 20px 0;
     display: flex;
-    font-size: 14px;
+    align-items: center;
     letter-spacing: 1px;
 }
 
@@ -81,6 +87,7 @@ a {
 
 .header-row {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
     padding: 14px 0;
@@ -88,7 +95,6 @@ a {
 }
 
 .logo {
-    height: 50px;
     width: auto;
     display: block;
 }
@@ -105,6 +111,15 @@ a {
 
 .nav a:hover {
     opacity: 1;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #1a1a1a;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: 0.3s;
 }
 
 .btn {
