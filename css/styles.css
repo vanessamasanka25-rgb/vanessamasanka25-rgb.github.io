@@ -1,10 +1,10 @@
 :root {
-    --bg: #fbf6f3;
-    --cream: #fff9f2;
-    --blush: #ffffff;
-    --accent: #cc118a;
-    --ink: #1a1a1a;
-    --line: rgba (0, 0, 0, 0.08);
+    --bg: #f4f4f1;
+    --cream: #f2e5c6;
+    --blush: #DAC1B1;
+    --accent: #3b010b;
+    --ink: #280b0f;
+    --line: rgba (59, 1, 11, 0.15);
     --card: #ffffff;
 
 }
@@ -26,8 +26,8 @@
 }
 
 .announcement-bar {
-    background: #572121;
-    color: white;
+    background: var(--accent);
+    color: #f2e5c6;
     overflow: hidden;
     white-space: nowrap;
     padding: 20px 0;
@@ -59,11 +59,29 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+section {
+    scroll-margin-top: 120px;
+}
+
 body {
     margin: auto;
     font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     color: var(--ink);
     background: var(--bg);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Playfair Display', serif;
 }
 
 a {
@@ -79,8 +97,8 @@ a {
 .site-header {
     position: sticky;
     top: 0;
-    background: rgba(255, 249, 242, 0.85);
-    backdrop-filter: blur(10px);
+    background: rgba(242, 229, 198, 0.9);
+    backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--line);
     z-index: 10;
 }
@@ -90,8 +108,13 @@ a {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding: 14px 0;
+    padding: 14px 40px;
     gap: 16px;
+}
+
+.logo image {
+    filter: drop-shadow(0px 2px 4px rgba (0, 0, 0, 0.3));
+    filter: brightness(1.1);
 }
 
 .logo {
@@ -99,10 +122,26 @@ a {
     display: block;
 }
 
+.navbar {
+    padding: 12 px 40px;
+}
+
+.nav {
+    margin-top: 20px;
+}
+
+.nav {
+    font-size: 17px;
+}
+
 .nav {
     display: flex;
-    gap: 18px;
+    gap: 20px;
     align-items: center;
+}
+
+.nav-btn {
+    padding: 10px 20px;
 }
 
 .nav a {
@@ -114,8 +153,14 @@ a {
 }
 
 .nav-links a {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-links {
     text-decoration: none;
-    color: #1a1a1a;
+    color: var(--ink);
     padding: 10px 16px;
     border-radius: 8px;
     font-weight: 500;
@@ -124,8 +169,8 @@ a {
 
 .btn {
     display: inline-block;
-    background: var(--accent);
-    color: white;
+    background: var(--cream);
+    color: var(--accent);
     padding: 12px 16px;
     border-radius: 999px;
     font-weight: 600;
@@ -147,6 +192,111 @@ a {
     font-size: 14px;
 }
 
+.cart-icon {
+    font-size: 26px;
+    font-weight: 600;
+    margin-left: 16px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+#cartCount {
+    background: #d4b483;
+    color: white;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+.cart-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 9999;
+}
+
+.cart-modal.active {
+    display: flex;
+}
+
+.cart-modal-content {
+    background: #fff;
+    width: min(900px, 95%);
+    padding: 28px;
+    border-radius: 18px;
+    position: relative;
+}
+
+.cart-modal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    align-items: start;
+}
+
+.cart-modal-image {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.close-modal {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    border: none;
+    background: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.cart-secton {
+    padding: flex;
+}
+
+.cart-item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-summary {
+    margin-top: 30px;
+    text-align: right;
+}
+
+.qty-input,
+.size-select {
+    width: 100%;
+    margin: 8px 0 16px;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+    font: inherit;
+}
+
+.product-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.tax-note {
+    font-size: 13px;
+    color: #8a8178;
+    margin-bottom: 14px;
+}
+
 .hero {
     padding: 48px 0 18px;
 }
@@ -160,7 +310,7 @@ a {
 
 .pill {
     display: inline-block;
-    background: rgba(248, 199, 204, 0.45);
+    background: rgba(59, 1, 11, 0.08);
     border: 1px solid var(--line);
     padding: 8px 12px;
     border-radius: 999px;
@@ -241,13 +391,14 @@ h1 {
 }
 
 .tile {
-    background: white;
+    background: #f2e5c6;
     padding: 30px;
     border-radius: 14px;
     text-decoration: none;
-    color: #222;
+    color: var(--ink);
     transition: 0.3s;
-    box-shadow: 0 10px 25px rgb(0, 0, 0, 0.08);
+    box-shadow: 0 10px 25px rgb(59, 1, 11, 0.08);
+    border: 1px solid rgba (59, 1, 11, 0.1);
     min-height: 120px;
 }
 
@@ -288,8 +439,8 @@ h1 {
 
 .product:hover {
     transform: translateY(-4px);
-    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
-    transition: 0.25s ease;
+    box-shadow: 0 8px 20px rgba(59, 1, 11, 0.08);
+    transition: all.25s ease;
 
 }
 
@@ -327,6 +478,24 @@ h1 {
     padding-left: 18px;
 }
 
+.about-contianer {
+
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 60px 20px;
+}
+
+.about-image img {
+
+    width: 350px;
+    border-radius: 12px;
+}
+
+.about-text {
+    max-width: 500px;
+}
+
 .contact-grid {
     display: grid;
     grid-template-columns: 1.2fr 0.8fr;
@@ -354,7 +523,7 @@ textarea {
     padding: 12px 12px;
     border-radius: 12px;
     border: 1px solid var(--line);
-    background: #fff;
+    background: #f2e5c6;
     font: inherit;
 }
 
@@ -362,11 +531,12 @@ textarea {
     display: inline-block;
     margin-right: 12px;
     text-decoration: underline;
-    text-decoration-color: rgba(204, 17, 138, 0.35);
+    text-decoration-color: rgba(59, 1, 11, 0.35);
 }
 
 .site-footer {
-    padding: 22px 0;
+    padding: 24px 0;
+    margin-right: 12px;
 }
 
 .footer-row {
@@ -375,6 +545,23 @@ textarea {
     gap: 12px;
     border-top: 1px solid var(--line);
     padding-top: 16px;
+}
+
+.site-footer a {
+    color: var(--accent);
+    font-size: 22px;
+    margin-left: 12px;
+    text-decoration: none;
+}
+
+.site-footer a:hover {
+    opacity: 0.75;
+}
+
+.social-icons {
+    display: flex;
+    gap: 14px;
+    align-items: center;
 }
 
 @media (max-width: 900px) {
